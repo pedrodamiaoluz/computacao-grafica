@@ -64,8 +64,8 @@ function main() {
 
 			const speed = .2 + ndx * .1;
 			const rot = time * speed;
-			// cube.rotation.x = rot;
-			// cube.rotation.y = rot;
+			cube.rotation.x = rot;
+			cube.rotation.y = rot;
 
 		} );
 
