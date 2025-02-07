@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
 const scene = new THREE.Scene();
-// const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
+const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
 
 
 const renderer = new THREE.WebGLRenderer();
@@ -13,39 +13,39 @@ document.body.appendChild( renderer.domElement );
 
 //--------------------------------------------------------------------
 
-const radiusTop = 1;  
+// const radiusTop = 1;  
 
-const radiusBottom = 1;  
+// const radiusBottom = 1;  
 
-const height = 3;  
+// const height = 3;  
 
-const radialSegments = 12;  
+// const radialSegments = 12;  
 
-const heightSegments = 2;  
+// const heightSegments = 2;  
 
-const openEnded = false;  
-const thetaStart = Math.PI * 0.25;  
+// const openEnded = false;  
+// const thetaStart = Math.PI * 0.25;  
 
-const thetaLength = Math.PI * 1.5;  
+// const thetaLength = Math.PI * 1.5;  
 
-const geometry = new THREE.CylinderGeometry(
-	radiusTop, radiusBottom, height,
-	radialSegments, heightSegments,
-	openEnded,
-	thetaStart, thetaLength );
+// const geometry = new THREE.CylinderGeometry(
+// 	radiusTop, radiusBottom, height,
+// 	radialSegments, heightSegments,
+// 	openEnded,
+// 	thetaStart, thetaLength );
 
-;
+// ;
 
-const fov = 45;
-const aspect = 2;  // the canvas default
-const near = 0.1;
-const far = 100;
-const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-camera.position.set(0, 10, 20);
+// const fov = 45;
+// const aspect = 2;  // the canvas default
+// const near = 0.1;
+// const far = 100;
+// const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+// camera.position.set(0, 10, 20);
 
-const controls = new OrbitControls(camera, canvas);
-controls.target.set(0, 5, 0);
-controls.update();
+// const controls = new OrbitControls(camera, canvas);
+// controls.target.set(0, 5, 0);
+// controls.update();
 
 //---------------------------------------------------------------------
 
