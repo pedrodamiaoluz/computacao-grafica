@@ -50,9 +50,9 @@ document.body.appendChild( renderer.domElement );
 //---------------------------------------------------------------------
 
 
-// const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
-const cube = new THREE.Mesh( geometry, material );
+const cube = new THREE.Mesh(geometry, material);
 scene.add( cube );
 
 const axesHelper = new THREE.AxesHelper(2);
@@ -64,11 +64,11 @@ let angle = 0;
 
 function animate() {
     angle += 0.05;
-	cube.rotation.x += 0.01;
+	// cube.rotation.x += 0.01;
 	// cube.rotation.y += 0.01;
-    // cube.position.x = Math.cos(angle);
-    // cube.position.y = Math.sin(angle);
-    cube.position.x = 0.80;
+    cube.position.x = Math.cos(angle);
+    cube.position.y = Math.sin(angle);
+    // cube.position.x = 0.80;
 	renderer.render( scene, camera );
 
 }

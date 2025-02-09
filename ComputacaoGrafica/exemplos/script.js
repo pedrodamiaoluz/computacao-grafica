@@ -27,12 +27,12 @@ function main() {
 		const planeSize = 40;
 
 		const loader = new THREE.TextureLoader();
-		const texture = loader.load( 'https://threejs.org/manual/examples/resources/images/checker.png' );
+		const texture = loader.load( '../aula05.02/one.jpg' );
 		texture.wrapS = THREE.RepeatWrapping;
 		texture.wrapT = THREE.RepeatWrapping;
 		texture.magFilter = THREE.NearestFilter;
 		texture.colorSpace = THREE.SRGBColorSpace;
-		const repeats = planeSize / 2;
+		const repeats = planeSize / 10;
 		texture.repeat.set( repeats, repeats );
 
 		const planeGeo = new THREE.PlaneGeometry( planeSize, planeSize );
@@ -71,19 +71,40 @@ function main() {
 		const sphereWidthDivisions = 32;
 		const sphereHeightDivisions = 16;
 		const sphereGeo = new THREE.SphereGeometry( sphereRadius, sphereWidthDivisions, sphereHeightDivisions );
-		const sphereMat = new THREE.MeshPhongMaterial( { color: 'red' } );
+		const sphereMat = new THREE.MeshPhongMaterial( { color: '#0fff00' } );
 		const mesh = new THREE.Mesh( sphereGeo, sphereMat );
 		mesh.position.set( - sphereRadius - 1, sphereRadius + 2, 0 );
 		scene.add( mesh );
 
         renderer.setAnimationLoop( animate );
 
+		let vx = 0.1;
+		let vy = 0.1;
+		let vz = 0.1;
+
         function animate(){
-            mesh.rotation.x += 0.01;
-            mesh.rotation.y += 0.01;
-            mesh.position.x = 0.80;
-            mesh.position.z = 4.00;
+            // mesh.rotation.x += 0.01;
+            // mesh.rotation.y += 0.01;
+            // mesh.position.x = 0.80;
+            // mesh.position.z = 4.00;
+
+			mesh.position.x += vx;
+			mesh.position.y += vy;
+			mesh.position.z += vz;
+
+			if (mesh.position.x >= 10 || mesh.position.x <= -10) {
+				vx = -vx;
+			}
+			if (mesh.position.y >= 6 || mesh.position.y <= -6) {
+				vy = -vy;
+			}
+			if (mesh.position.z >= 8 || mesh.position.z <= -8) {
+				vz = -vz;
+			}
+
+
         }
+		
 
 	}
 

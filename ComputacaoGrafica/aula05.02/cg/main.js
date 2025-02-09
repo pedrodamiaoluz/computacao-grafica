@@ -18,15 +18,13 @@ document.body.appendChild(renderer.domElement);
 
 // Carregar a textura para o plano de fundo
 const loader = new THREE.TextureLoader();
-loader.load('src/zoro.png', function(texture) {
+loader.load('/ComputacaoGrafica/aula05.02/zoro.png', function(texture) {
     scene.background = texture;
 });
 
 const textureLoader = new THREE.TextureLoader();
 const textures = [
-    textureLoader.load('src/zoro.png'),
-    textureLoader.load('src/zoro.png'),
-    textureLoader.load(''),
+    textureLoader.load('/ComputacaoGrafica/aula05.02/zoro.png'),
     // Adicione mais texturas conforme necessário
 ];
 
@@ -34,9 +32,10 @@ const textures = [
 let cubos = [];
 let colidir = new Set();
 
-for (let i = 0; i < 30; i++) {
+for (let i = 0; i < 20; i++) {
   const geometry = new THREE.BoxGeometry(1, 1, 1);
   const material = new THREE.MeshBasicMaterial({ map: textures[i % textures.length] });
+  // const material = new THREE.MeshBasicMaterial({ color: 0xfff00 });
   const cube = new THREE.Mesh(geometry, material);
   scene.add(cube);
   cubos.push(cube);
@@ -66,7 +65,11 @@ function colidiram(cuboA, cuboB) {
 	return distancia < minDistancia;
 }
 
+let angle = 0;
+
 function animate() {
+
+  angle += 0.05;
 
   cubos[0].rotation.x += 0.01;
   cubos[0].rotation.y += 0.01;
@@ -92,8 +95,8 @@ function animate() {
 
     	for(let j = i + 1; j < cubos.length; j++) {
 			if(colidiram(cubos[i], cubos[j])) {
-				cubos[i].material.map.set(getRandomColor());
-				cubos[j].material.map.set(getRandomColor());
+				cubos[i].material.color.set(getRandomColor());
+				cubos[j].material.color.set(getRandomColor());
 				colidir.add(cubos[i]);
 				colidir.add(cubos[j]);
 			}
