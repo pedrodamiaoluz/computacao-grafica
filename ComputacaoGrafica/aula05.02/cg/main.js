@@ -42,7 +42,7 @@ for (let i = 0; i < 20; i++) {
 
 }
 
-camera.position.z = 15;
+camera.position.z = 1;
 
 let velocidades = [];
 
@@ -50,7 +50,7 @@ for (let i = 0; i < cubos.length; i++) {
   let velocidade = [
     (5.0 * (2.0 * Math.random() - 1.0)) / 100,
     (5.0 * (2.0 * Math.random() - 1.0)) / 100,
-    (5.0 * (2.0 * Math.random() - 1.0)) / 100,
+    (5.0 * (2.0 * Math.random() - 1.0)) / 100, 
   ];
   velocidades.push(velocidade);
 }
